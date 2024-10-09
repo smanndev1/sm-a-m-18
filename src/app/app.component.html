@@ -1,6 +1,10 @@
 
-    <mat-form-field class="example-full-width">
-      <input type="string" matInput placeholder="555-555-1234">
-    </mat-form-field>
+    <ul>
+        @for (color of letters; track color) {
+            <mat-form-field class="input-width">
+                <input type="string" matInput placeholder="555-555-1234">
+              </mat-form-field>
+        }
+      </ul>
 
 <router-outlet />

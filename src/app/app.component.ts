@@ -12,5 +12,8 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'angular-material-18-start';
+   
+ letters = ['a', 'b', 'c'  ]
+
+
 }
