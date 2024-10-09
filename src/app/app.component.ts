@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, afterNextRender, inject, Injector } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
@@ -12,8 +12,7 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-   
- letters = ['a', 'b', 'c'  ]
 
+ letters = ['a', 'b', 'c' , '', 'p' ]
 
 }

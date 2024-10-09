@@ -1,10 +1,16 @@
 
-    <ul>
-        @for (color of letters; track color) {
-            <mat-form-field class="input-width">
-                <input type="string" matInput placeholder="555-555-1234">
-              </mat-form-field>
+    <div class="container">
+        @for (letter of letters; track letter) {
+            @if (letter != '') {
+            <div appearence="legacy" class="input-width"  >
+                <input [readonly]="true" style="font-size: 4rem; padding: 2rem; border:0; outline:0; pointer-events: none;" class="input-class" type="text" maxlength="1" [value]= letter>
+            </div>
         }
-      </ul>
+       @else {
+        <h5>sdd</h5>
+       }
+
+        }
+    </div>
 
 <router-outlet />

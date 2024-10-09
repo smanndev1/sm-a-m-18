@@ -1,3 +1,9 @@
-.input-width { width: 50px;
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 
+.input-width { 
+    width: 60px;
 }
