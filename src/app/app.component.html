@@ -3,11 +3,13 @@
         @for (letter of letters; track letter) {
             @if (letter != '') {
             <div appearence="legacy" class="input-width"  >
-                <input [readonly]="true" style="font-size: 4rem; padding: 2rem; border:0; outline:0; pointer-events: none;" class="input-class" type="text" maxlength="1" [value]= letter>
+                <input [readonly]="true" style="font-size: 4rem; padding: 2rem; border:0; outline:0; pointer-events: none;" class="input-class" [value]= letter>
             </div>
         }
        @else {
-        <h5>sdd</h5>
+        <div appearence="legacy" class="input-width"  >
+            <input  style="font-size: 4rem; padding: 2rem; border-bottom-style: solid 1rem;" class="input-class" type="text" maxlength="1" [value]= letter>
+        </div>
        }
 
         }
