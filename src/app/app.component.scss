@@ -1,9 +1,12 @@
 .container {
+    height: 200px;
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .input-width { 
-    width: 60px;
+    width: 35px;
 }

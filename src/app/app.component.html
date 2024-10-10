@@ -3,12 +3,12 @@
         @for (letter of letters; track letter) {
             @if (letter != '') {
             <div appearence="legacy" class="input-width"  >
-                <input [readonly]="true" style="font-size: 4rem; padding: 2rem; border:0; outline:0; pointer-events: none;" class="input-class" [value]= letter>
+                <div > <span style="font-size: 4rem; "> {{letter}}</span>   </div>
             </div>
         }
        @else {
-        <div appearence="legacy" class="input-width"  >
-            <input  style="font-size: 4rem; padding: 2rem; border-bottom-style: solid 1rem;" class="input-class" type="text" maxlength="1" [value]= letter>
+        <div appearence="legacy" class=""  >
+            <input  style=" text-align: center; font-size: 4rem; padding: 0.2rem; padding-bottom: 1rem; border: solid 1px; border-radius: 0.8rem; width: 45px; height: 50px;" class="" type="text" maxlength="1" [value]= letter>
         </div>
        }
 
