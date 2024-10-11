@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatInputModule} from '@angular/material/input';
 import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { V } from '@angular/cdk/keycodes';
-
-
 
 @Component({
   selector: 'app-root',
@@ -20,7 +17,7 @@ export class AppComponent implements OnInit {
   numberOfCharacters: number = 0;
 
   word = 'horse'
-  letters = [{key: 'position_1', value: 'h'}, {key: 'position_2', value: 'o'}, {key: 'position_3', value: 'r'} , {key: 'position_4', value: ''}, {key: 'position_5', value: 'e'} ]
+  letters = [{key: 'position_1', value: 'h'}, {key: 'position_2', value: 'o'}, {key: 'position_3', value: 'r'} , {key: 'position_4', value: ''}, {key: 'position_5', value: 'e'}]
 
   constructor(private fb: FormBuilder) {
   }
@@ -54,7 +51,7 @@ export class AppComponent implements OnInit {
      if(userAnswer.toString().replaceAll(',', '') !== this.word){
       return false;
     }
-    
+
      return true;
   }
 }
