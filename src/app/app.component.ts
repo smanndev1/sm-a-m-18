@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   numberOfCharacters: number = 0;
 
   word = 'horse'
-  letters = [{key: 'position_1', value: 'h'}, {key: 'position_2', value: 'o'}, {key: 'position_3', value: 'r'} , {key: 'position_4', value: ''}, {key: 'position_5', value: 'e'}]
+  inputMapping = [{key: 'position_1', value: 'h'}, {key: 'position_2', value: 'o'}, {key: 'position_3', value: 'r'} , {key: 'position_4', value: ''}, {key: 'position_5', value: 'e'}]
 
   constructor(private fb: FormBuilder) {
   }
@@ -29,21 +29,20 @@ export class AppComponent implements OnInit {
        console.log(this.isAnswerCorrect())
     })
 
-    this.numberOfCharacters = this.letters.length;
-    this.createSpaces();
+    this.numberOfCharacters = this.inputMapping.length;
+    this.createControls();
   }
 
-  createSpaces() {
-    this.letters.forEach((element: any, index: number)  => {
+  createControls() {
+    this.inputMapping.forEach((element: any, index: number)  => {
       this.formGroup.addControl('position_'+ (index + 1), new FormControl(element.value))
     });
   }
 
  isAnswerCorrect(): boolean {
-
      var userAnswer: string[] = [];
 
-     this.letters.forEach((x: any)=> {
+     this.inputMapping.forEach((x: any)=> {
       const userCharacter = this.formValues[x.key];
       userAnswer.push(userCharacter);
      })

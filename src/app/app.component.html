@@ -2,7 +2,7 @@
 <form [formGroup]="formGroup">
 
     <div class="container">
-        @for (letter of letters; track letter; ) {
+        @for (letter of inputMapping; track letter; ) {
             @if (letter.value != '') {
             <div appearence="legacy" class="input-width">
                 <div > <span style="font-size: 4rem;"> {{letter.value}}</span></div>
