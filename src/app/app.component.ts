@@ -54,6 +54,7 @@ export class AppComponent implements OnInit {
      if(userAnswer.toString().replaceAll(',', '') !== this.word){
       return false;
     }
+    
      return true;
   }
 }
