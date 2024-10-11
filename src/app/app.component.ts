@@ -12,13 +12,13 @@ import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angul
 })
 export class AppComponent implements OnInit {
  
-  formGroup = this.fb.group({});
-  formValues: any;
-  numberOfCharacters: number = 0;
+  public formGroup = this.fb.group({});
+  public formValues: any;
+  public numberOfCharacters: number = 0;
+  public inputMapping: any = []
 
   word = 'horse'
-  inputMapping = [{key: 'position_1', value: 'h'}, {key: 'position_2', value: 'o'}, {key: 'position_3', value: 'r'} , {key: 'position_4', value: ''}, {key: 'position_5', value: 'e'}]
-
+ 
   constructor(private fb: FormBuilder) {
   }
 
@@ -30,12 +30,22 @@ export class AppComponent implements OnInit {
     })
 
     this.numberOfCharacters = this.inputMapping.length;
+    this.createInputMappings();
     this.createControls();
+  }
+
+  createInputMappings() {
+    
+    const wordArray = this.word.split('');
+    wordArray.forEach((letter: any, index: number) => {
+         this.inputMapping.push({key: 'position_' + index , letter});
+    });
+
   }
 
   createControls() {
     this.inputMapping.forEach((element: any, index: number)  => {
-      this.formGroup.addControl('position_'+ (index + 1), new FormControl(element.value))
+      this.formGroup.addControl(element.key, new FormControl(element.value))
     });
   }
 
