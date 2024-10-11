@@ -1,8 +1,9 @@
-import { Component, ViewChild, afterNextRender, inject, Injector, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatInputModule} from '@angular/material/input';
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FormArray} from '@angular/forms';
+import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { V } from '@angular/cdk/keycodes';
+
 
 
 @Component({
@@ -15,26 +16,44 @@ import {FormArray} from '@angular/forms';
 export class AppComponent implements OnInit {
  
   formGroup = this.fb.group({});
+  formValues: any;
+  numberOfCharacters: number = 0;
 
-  letters = [{key: 'position_1', value: 'e'}, {key: 'position_1', value: 'r'}, {key: 'position_2', value: 't'} , {key: 'position_3', value: ''}, {key: 'position_4', value: 'e'} ]
+  word = 'horse'
+  letters = [{key: 'position_1', value: 'h'}, {key: 'position_2', value: 'o'}, {key: 'position_3', value: 'r'} , {key: 'position_4', value: ''}, {key: 'position_5', value: 'e'} ]
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
+
+    this.formGroup.valueChanges.subscribe(value => {
+     this.formValues = value;
+       console.log(this.isAnswerCorrect())
+    })
+
+    this.numberOfCharacters = this.letters.length;
     this.createSpaces();
   }
 
- 
   createSpaces() {
     this.letters.forEach((element: any, index: number)  => {
-      this.formGroup.addControl('position_'+ (index + 1), new FormControl('10'))
+      this.formGroup.addControl('position_'+ (index + 1), new FormControl(element.value))
     });
   }
 
+ isAnswerCorrect(): boolean {
 
- checkAnswer() {
-  
+     var userAnswer: string[] = [];
 
-}
+     this.letters.forEach((x: any)=> {
+      const userCharacter = this.formValues[x.key];
+      userAnswer.push(userCharacter);
+     })
+
+     if(userAnswer.toString() !== this.word){
+      return false;
+    }
+     return true;
+  }
 }
