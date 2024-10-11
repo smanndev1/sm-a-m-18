@@ -14,11 +14,9 @@ import {FormArray} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
  
-  formGroup = this.fb.group({
+  formGroup = this.fb.group({});
 
-  });
-
-  word = ['a', 'b', 'c' , '', 'p' ]
+  letters = [{key: 'position_1', value: 'e'}, {key: 'position_1', value: 'r'}, {key: 'position_2', value: 't'} , {key: 'position_3', value: ''}, {key: 'position_4', value: 'e'} ]
 
   constructor(private fb: FormBuilder) {
   }
@@ -29,8 +27,8 @@ export class AppComponent implements OnInit {
 
  
   createSpaces() {
-    this.word.forEach((element: String, index: number)  => {
-      this.formGroup.addControl('control'+ (index + 1), new FormControl('10'))
+    this.letters.forEach((element: any, index: number)  => {
+      this.formGroup.addControl('position_'+ (index + 1), new FormControl('10'))
     });
   }
 
