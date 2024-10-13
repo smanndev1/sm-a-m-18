@@ -32,6 +32,9 @@ export class AppComponent implements OnInit {
     this.numberOfCharacters = this.inputMapping.length;
     this.createInputMappings();
     this.createControls();
+
+    console.log(this.inputMapping)
+    console.log(this.formGroup)
   }
 
   createInputMappings() {
@@ -47,6 +50,12 @@ export class AppComponent implements OnInit {
     this.inputMapping.forEach((element: any, index: number)  => {
       this.formGroup.addControl(element.key, new FormControl(element.value))
     });
+  }
+
+  removeLetters(NoOfLettersToRemove: number, position_: number) {
+    
+    
+
   }
 
  isAnswerCorrect(): boolean {
